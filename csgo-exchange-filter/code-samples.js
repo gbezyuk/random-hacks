@@ -26,6 +26,7 @@ function filter_items (items, min_price, max_price) {
 
  // version 2 helper
 
+
 function kill_infidels (min_price, max_price) {
     var items = $('.inventory_item');
     for (var i = 0; i < items.length; i ++) {
