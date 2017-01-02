@@ -24,8 +24,7 @@ function filter_items (items, min_price, max_price) {
  * - just kill all unneccessary shit 
  */
 
- // version 2 helper
-
+// version 2 helper
 
 function kill_infidels (min_price, max_price) {
     var items = $('.inventory_item');
