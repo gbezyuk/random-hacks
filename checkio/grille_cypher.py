@@ -2,7 +2,9 @@ def rotate_grille_clockwise (grille):
     return zip(*grille[::-1])
 
 def generate_all_full_product_matrix(gl):
-    return zip([0]*gl+[1]*gl+[2]*gl+[3]*gl, range(gl)*gl)
+    for i in range(gl):
+        for j in range(gl):
+            yield (i, j)
 
 def recall_password(cipher_grille, ciphered_password, number_of_turns=4):
     res = ''
