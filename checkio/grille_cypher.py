@@ -6,9 +6,7 @@ def recall_password(cipher_grille, ciphered_password):
     cg = list(cipher_grille)
     for k in range(4):
         for i in range(len(cg)):
-            for j in range(len(cg[i])):
-                if cg[i][j] == 'X':
-                    res += ciphered_password[i][j]
+            res += ''.join([ciphered_password[i][j] for j in range(len(cg[i])) if cg[i][j] == 'X'])            
         
         cg = rotate_grille_clockwise(cg)
     return res
