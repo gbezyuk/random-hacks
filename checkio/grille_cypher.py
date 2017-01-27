@@ -1,14 +1,13 @@
 def rotate_grille_clockwise (grille):
-    return list(zip(*grille[::-1]))
+    return zip(*grille[::-1])
 
 def recall_password(cipher_grille, ciphered_password):
     res = ''
-    cg = list(cipher_grille)
     for k in range(4):
-        for i in range(len(cg)):
-            res += ''.join([ciphered_password[i][j] for j in range(len(cg[i])) if cg[i][j] == 'X'])            
+        for i in range(len(cipher_grille)):
+            res += ''.join([ciphered_password[i][j] for j in range(len(cipher_grille[i])) if cipher_grille[i][j] == 'X'])            
         
-        cg = rotate_grille_clockwise(cg)
+        cipher_grille = rotate_grille_clockwise(cipher_grille)
     return res
 
 grille = (
