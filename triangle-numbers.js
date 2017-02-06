@@ -37,10 +37,10 @@ triangle_number(n) == triangle(n-1) + n
 */
 
 function get_triangle_number (n) {
+    console.log('CALLING get_triangle_number with n = ', n)
     if ( n <= 0) return 0;
     return get_triangle_number(n - 1) + n
 }
-
 
 function tabulate (f, x0, x1, dx) {
     for (var x = x0; x < x1; x = x + dx) {
@@ -73,4 +73,45 @@ function draw_triangle (n) {
 
 function t (n) { 
     return (n + 1) * n / 2
+}
+
+var cache = {
+    "1":1,
+    "2":3,
+    "3":6,
+    "4":10,
+    "5":15,
+    "6":21,
+    "7":28,
+    "8":36,
+    "9":45,
+    "10":55,
+    "11":66,
+    "12":78,
+    "13":91,
+    "14":105,
+    "15":120,
+    "16":136,
+    "17":153,
+    "18":171,
+    "19":190,
+    "20":210,
+    "21":231
+}
+
+function get_triangle_number_memoized (n) {
+    console.log('CALLING get_triangle_number_memoized with n = ', n)
+    if (cache[n]) {
+        console.log('FOUND IN CACHE')
+        return cache[n];
+    }
+    if ( n <= 0) {
+        console.log('<= 0')
+        return 0;
+    }
+    else {
+        console.log('BUT WE NEED TO GO DEEPER...')
+        cache[n] = get_triangle_number_memoized(n - 1) + n
+        return cache[n]
+    }
 }
