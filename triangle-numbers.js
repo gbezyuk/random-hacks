@@ -25,14 +25,22 @@ triangle_number(4) == 10
 4 5 6
 7 8 9 10
 
+triangle_number(5) == 15
+1  
+2  3
+4  5  6
+7  8  9  10
+11 12 13 14 15
+
 triangle_number(n) == triangle(n-1) + n
 
 */
 
 function get_triangle_number (n) {
-    if ( n == 0) return 0;
+    if ( n <= 0) return 0;
     return get_triangle_number(n - 1) + n
 }
+
 
 function tabulate (f, x0, x1, dx) {
     for (var x = x0; x < x1; x = x + dx) {
@@ -40,21 +48,29 @@ function tabulate (f, x0, x1, dx) {
     }
 }
 
+function draw_last_line (n) {
+    var previous_triangle_number = get_triangle_number(n - 1)
+    var this_triangle_number = get_triangle_number(n)
+    var last_line = []
+    for (var i = previous_triangle_number + 1; i <= this_triangle_number; i++) {
+        last_line.push(i)
+    }
+    console.log.apply(console, last_line)
+}
+
 function draw_triangle (n) {
-    if (n == 0) {
-        return 
+    if (n <= 0) {
+        return
     }
     if (n == 1) {
         console.log(1)
     }
     else {
         draw_triangle(n - 1)
-        var previous_triangle_number = get_triangle_number(n - 1)
-        var this_triangle_number = get_triangle_number(n)
-        var last_line = []
-        for (var i = previous_triangle_number + 1; i <= this_triangle_number; i++) {
-            last_line.push(i)
-        }
-        console.log.apply(console, last_line)
+        draw_last_line(n)
     }
+}
+
+function t (n) { 
+    return (n + 1) * n / 2
 }
