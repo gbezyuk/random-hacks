@@ -6,7 +6,6 @@
 Примеры:
 triangle_number(0) == 0
 
-
 triangle_number(1) == 1
 1
 
