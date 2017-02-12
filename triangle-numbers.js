@@ -47,6 +47,8 @@ function tabulate (f, x0, x1, dx) {
     }
 }
 
+// by gbezyuk 2017.02.12
+
 function draw_last_line (n) {
     var previous_triangle_number = get_triangle_number(n - 1)
     var this_triangle_number = get_triangle_number(n)
